@@ -13,15 +13,18 @@ public class StringAssertion
 	public boolean  assertContains(String sourceString,String content)
 	{
 		// TODO Auto-generated method stub
+		System.out.println("*********************STARTING STRING ASSERTION**************************");
 		if(sourceString.contains(content))
 		{
 			System.out.println(" AssertContains is TRUE.\n Main String is :"+sourceString +"\n" +" String Asserted is : " +content);
+			System.out.println("*****************STRING ASSERTION COMPLETED**************************");
 			return true;
 		}
 		
 		else
 		{
 			System.out.println(" AssertContains is FALSE.\n Main String is :"+sourceString +"\n" +" String Asserted is : " +content);
+			System.out.println("*****************STRING ASSERTION COMPLETED**************************");
 			return false;
 		}
 	}
@@ -33,16 +36,18 @@ public class StringAssertion
 	public boolean  assertContains_ignorecase(String sourceString,String content)
 	{
 		// TODO Auto-generated method stub
-		
+		System.out.println("*********************STARTING STRING ASSERTION**************************");
 		if(Pattern.compile(Pattern.quote(content), Pattern.CASE_INSENSITIVE).matcher(sourceString).find())
 		{
 			System.out.println(" CASE_INSENSITIVE AssertContains is TRUE.\n Main String is :"+sourceString +"\n" +" String Asserted is : " +content);
+			System.out.println("*****************STRING ASSERTION COMPLETED**************************");
 			return true;
 		}
 		
 		else
 		{
 			System.out.println(" CASE_INSENSITIVE AssertContains is FALSE.\n Main String is :"+sourceString +"\n" +" String Asserted is : " +content);
+			System.out.println("*****************STRING ASSERTION COMPLETED**************************");
 			return false;
 		}
 	}

@@ -17,7 +17,7 @@ public class PublishToKafka
 {
     public void publishjsonAsString(String brokers, String topicName, String inputjson) throws IOException
     {
-
+    	System.out.println("*********************STARTING KAFKA PRODUCER**************************");
         // Set properties used to configure the producer
         Properties properties = new Properties();
         // Set the brokers (bootstrap servers)
@@ -41,6 +41,7 @@ public class PublishToKafka
             ProducerRecord<String, String> record = new ProducerRecord<String, String>(topicName, inputjson);
             producer.send(record);
             System.out.println("String Message published to kafka topic :\n"+record);
+            System.out.println("*********************MESSAGE PUSH TO TOPIC COMPLETED***********************");
             
         } catch (Exception ex) {
         	ex.printStackTrace();
@@ -52,7 +53,7 @@ public class PublishToKafka
     //Publish json as JSON object
     public void publishjsonAsJsonObject(String brokers, String topicName, JSONObject inputjson) throws IOException
     {
-
+    	System.out.println("*********************STARTING KAFKA PRODUCER**************************");
         // Set properties used to configure the producer
         Properties properties = new Properties();
         // Set the brokers (bootstrap servers)
@@ -78,6 +79,7 @@ public class PublishToKafka
             ProducerRecord<String, JsonNode> record = new ProducerRecord<String, JsonNode>(topicName, jsonNode);
             producer.send(record);
             System.out.println("Json Object Message published to kafka topic :\n"+record);
+            System.out.println("*********************MESSAGE PUSH TO TOPIC COMPLETED***********************");
             
         } catch (Exception ex) {
         	ex.printStackTrace();
@@ -89,7 +91,7 @@ public class PublishToKafka
   //Publish json as JSON array
     public void publishjsonAsJsonArray(String brokers, String topicName, JSONArray inputjson) throws IOException
     {
-
+    	System.out.println("*********************STARTING KAFKA PRODUCER**************************");
         // Set properties used to configure the producer
         Properties properties = new Properties();
         // Set the brokers (bootstrap servers)
@@ -115,7 +117,7 @@ public class PublishToKafka
             ProducerRecord<String, JsonNode> record = new ProducerRecord<String, JsonNode>(topicName, jsonNode);
             producer.send(record);
             System.out.println("Json Object Message published to kafka topic :\n"+record);
-            
+            System.out.println("*********************MESSAGE PUSH TO TOPIC COMPLETED***********************");
         } catch (Exception ex) {
         	ex.printStackTrace();
         } finally {
