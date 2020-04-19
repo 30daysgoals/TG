@@ -29,18 +29,19 @@ public class ConsumeFromKafka
         // Set the brokers (bootstrap servers)
         properties.put("bootstrap.servers", brokers);
         properties.put("enable.auto.commit", "false");
-        properties.put("auto.commit.interval.ms", "1000");
+        //properties.put("auto.commit.interval.ms", "1000");
+        properties.put("auto.offset.reset", "earliest");
         properties.put("group.id", groupid);
         // Serialize key/value pairs
         properties.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("ConsumerConfig","earliest");  
+        properties.setProperty("ConsumerConfig","from-beginning");  
         // specify the protocol for SSL Encryption This is needed for secure clusters
         //properties.setProperty(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SASL_PLAINTEXT");
         
         Thread.currentThread().setContextClassLoader(null);
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
-        consumer.subscribe(Collections.singletonList(topicName));
+        consumer.subscribe(Arrays.asList(topicName));
 		return consumer;
         
 }
